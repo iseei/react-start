@@ -15,7 +15,7 @@ const routes: MenuDataItem[] = [
     name: '用户管理',
     icon: <UserOutlined />,
     path: '/user_management',
-    component: Demo,
+    component: Hello,
     children: []
   },
   {

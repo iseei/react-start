@@ -9,6 +9,8 @@ import NoMatch from './page/404';
 import { createBrowserHistory } from 'history';
 import { ConfigProvider } from 'antd';
 import mainLayout from './layout/mainLayout';
+import { Provider } from 'react-redux';
+import store from './store';
 
 const history = createBrowserHistory();
 
@@ -16,13 +18,15 @@ const App = () => (
   <BrowserRouter>
     <Switch>
       <Route path="/main" component={mainLayout} />
-      {/* <Redirect to='/main' /> */}
+      <Redirect to='/main' />
     </Switch>
   </BrowserRouter>
 );
 
 ReactDOM.render((
-  <ConfigProvider>
-    <App />
-  </ConfigProvider>
+  <Provider store={store}>
+    <ConfigProvider>
+      <App />
+    </ConfigProvider>
+  </Provider>
 ), document.getElementById('root'));
